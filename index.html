@@ -393,8 +393,8 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
         <!-- Email opens visitor's default mail app -->
         <a class="btn secondary"
-           href="mailto:sumitgabhrani@gmail.com?subject=Portfolio%20Contact%20-%20Sumit%20Gabhrani&body=Hello%20Sumit%2C%0D%0A%0D%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect.%0D%0A%0D%0ARegards%2C">
-            Email Me ✉
+           href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWtMmVfjcVpkjPtcjFBsmLGgtsRDqBKddZrQNvqCDTgnxBCptzPlMHdBwslVrnfRMhXTKSLXQ" target="_blank" rel="noopener noreferrer">
+            Email Me on Gmail ✉
         </a>
 
         <a class="btn secondary"
@@ -606,7 +606,7 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
     <div class="timeline">
         <div class="timeline-item">
             <div class="time">ONGOING · 2ND YEAR</div>
-            <h3>B.Tech — Computer Engineering\ AI & Data Analytics</h3>
+            <h3>B.Tech — AI & Data Analytics / Computer Engineering</h3>
             <p>
                 LDRP Institute of Technology and Research, Gandhinagar.
                 <br><br>
@@ -644,7 +644,7 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
                 selected freelance projects where I can learn, contribute and grow
                 as a developer.
             </p>
- 
+
             <div class="availability">
                 <span class="availability-dot"></span>
                 Available for opportunities
@@ -655,8 +655,8 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
             <!-- EMAIL -->
             <a class="contact-link"
-               href="mailto:sumitgabhrani@gmail.com?subject=Portfolio%20Contact%20-%20Sumit%20Gabhrani&body=Hello%20Sumit%2C%0D%0A%0D%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect.%0D%0A%0D%0ARegards%2C"
-               onclick="return openEmail(event);">
+               href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWtMmVfjcVpkjPtcjFBsmLGgtsRDqBKddZrQNvqCDTgnxBCptzPlMHdBwslVrnfRMhXTKSLXQ" target="_blank" rel="noopener noreferrer"
+              >
                 <div class="contact-left">
                     <div class="contact-icon">✉</div>
                     <div>
@@ -669,12 +669,12 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
             <!-- PHONE -->
             <a class="contact-link" href="tel:+919023925860">
-                <a class="contact-link" href="tel:+917433011203">
+                 <a class="contact-link" href="tel:+917433011203">
                 <div class="contact-left">
                     <div class="contact-icon">☎</div>
                     <div>
                         <div class="contact-name">Phone</div>
-                        <div class="contact-value">+91 90239 25860\ +91 74330 11203</div>
+                        <div class="contact-value">+91 90239 25860\+91 74330 11203</div>
                     </div>
                 </div>
                 <div class="arrow">↗</div>
@@ -751,9 +751,9 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
         </div>
 
         <a class="btn primary"
-           href="mailto:sumitgabhrani@gmail.com?subject=Portfolio%20Contact%20-%20Sumit%20Gabhrani&body=Hello%20Sumit%2C%0D%0A%0D%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect.%0D%0A%0D%0ARegards%2C"
-           onclick="return openEmail(event);">
-            Send Me an Email ✉
+           href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=DmwnWtMmVfjcVpkjPtcjFBsmLGgtsRDqBKddZrQNvqCDTgnxBCptzPlMHdBwslVrnfRMhXTKSLXQ" target="_blank" rel="noopener noreferrer"
+          >
+            Send Me an Email on Gmail ✉
         </a>
     </div>
 </div>
@@ -829,24 +829,6 @@ function typeEffect(){
 }
 
 typeEffect();
-
-/* Email helper + fallback
-   If a visitor has no default email app configured, copy the address
-   and show it clearly instead of leaving them with no response. */
-function openEmail(event){
-    const email = "sumitgabhrani@gmail.com";
-
-    // Let the browser attempt the mailto action first.
-    // The fallback gives the visitor a usable address even without a mail app.
-    setTimeout(() => {
-        if (document.visibilityState === "visible") {
-            navigator.clipboard?.writeText(email).catch(() => {});
-            alert("Email copied: " + email + "\n\nYou can paste it into Gmail, Outlook, or your preferred email service.");
-        }
-    }, 900);
-
-    return true;
-}
 
 /* 3D mouse effect */
 const orb = document.querySelector(".orb");
