@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1RWWNBCCB"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H1RWWNBCCB');
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Sumit Gabhrani — Computer Engineering Student, MERN Developer and Software Developer.">
@@ -88,6 +97,85 @@ nav{
     transition:.25s;
 }
 .nav-resume:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(124,92,255,.28)}
+
+.resume-menu{
+    position:relative;
+}
+
+.nav-resume{
+    cursor:pointer;
+    color:white;
+    font-family:inherit;
+}
+
+.resume-dropdown{
+    position:absolute;
+    top:calc(100% + 9px);
+    right:0;
+    min-width:175px;
+    padding:7px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(8,13,27,.96);
+    backdrop-filter:blur(18px);
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+    display:none;
+    z-index:200;
+}
+
+.resume-dropdown.show{
+    display:block;
+}
+
+.resume-dropdown a{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:11px 12px;
+    border-radius:9px;
+    font-size:11px;
+    font-weight:700;
+    color:#dce3f3;
+    transition:.2s;
+}
+
+.resume-dropdown a:hover{
+    background:rgba(255,255,255,.07);
+    color:white;
+}
+
+.resume-dropdown span{
+    color:var(--accent2);
+    font-size:15px;
+}
+
+.resume-contact{
+    flex-wrap:wrap;
+}
+
+.resume-contact-actions{
+    display:flex;
+    gap:7px;
+    align-items:center;
+}
+
+.mini-download{
+    padding:7px 9px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.045);
+    color:#dce3f3;
+    font-size:10px;
+    font-weight:800;
+    transition:.2s;
+}
+
+.mini-download:hover{
+    background:rgba(124,92,255,.16);
+    border-color:rgba(124,92,255,.35);
+    color:white;
+}
 
 .hero{
     min-height:100vh;
@@ -327,6 +415,7 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
     .grid{grid-template-columns:1fr}
     .navlinks{display:none}
     .nav-resume{font-size:10px;padding:8px 11px}
+    .resume-dropdown{right:0}
     .hero{padding-top:120px}
     .container{width:min(100% - 28px,1120px)}
 }
@@ -354,11 +443,23 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
         <a href="#contact">Contact</a>
     </div>
 
-    <a class="nav-resume"
-       href="Sumit_Gabhrani_Resume.pdf"
-       download="Sumit_Gabhrani_Resume.pdf">
-        Resume ↓
-    </a>
+    <div class="resume-menu">
+        <button class="nav-resume" type="button" onclick="toggleResumeMenu()">
+            Resume ↓
+        </button>
+
+        <div class="resume-dropdown" id="resumeDropdown">
+            <a href="Sumit_Gabhrani_Resume.pdf"
+               download="Sumit_Gabhrani_Resume.pdf">
+                PDF Resume <span>↓</span>
+            </a>
+
+            <a href="Sumit_Gabhrani_Professional.docx"
+               download="Sumit_Gabhrani_Professional.docx">
+                Word Resume <span>↓</span>
+            </a>
+        </div>
+    </div>
 </nav>
 
 <main>
@@ -606,7 +707,7 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
     <div class="timeline">
         <div class="timeline-item">
             <div class="time">ONGOING · 2ND YEAR</div>
-            <h3>B.Tech — AI & Data Analytics / Computer Engineering</h3>
+            <h3>B.Tech — Computer Engineering \ AI & Data Analytics</h3>
             <p>
                 LDRP Institute of Technology and Research, Gandhinagar.
                 <br><br>
@@ -669,12 +770,12 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
             <!-- PHONE -->
             <a class="contact-link" href="tel:+919023925860">
-                 <a class="contact-link" href="tel:+917433011203">
+                <a class="contact-link" href="tel:+917433011203">
                 <div class="contact-left">
                     <div class="contact-icon">☎</div>
                     <div>
                         <div class="contact-name">Phone</div>
-                        <div class="contact-value">+91 90239 25860\+91 74330 11203</div>
+                        <div class="contact-value">+91 90239 25860\ +91 74330 11203</div>
                     </div>
                 </div>
                 <div class="arrow">↗</div>
@@ -723,18 +824,29 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
             </a>
 
             <!-- RESUME -->
-            <a class="contact-link"
-               href="Sumit_Gabhrani_Resume.pdf"
-               target="_blank" rel="noopener noreferrer">
+            <div class="contact-link resume-contact">
                 <div class="contact-left">
                     <div class="contact-icon">↓</div>
                     <div>
                         <div class="contact-name">Resume</div>
-                        <div class="contact-value">View / Download CV</div>
+                        <div class="contact-value">Choose PDF or Word format</div>
                     </div>
                 </div>
-                <div class="arrow">↗</div>
-            </a>
+
+                <div class="resume-contact-actions">
+                    <a href="Sumit_Gabhrani_Resume.pdf"
+                       download="Sumit_Gabhrani_Resume.pdf"
+                       class="mini-download">
+                        PDF ↓
+                    </a>
+
+                    <a href="Sumit_Gabhrani_Professional.docx"
+                       download="Sumit_Gabhrani_Professional.docx"
+                       class="mini-download">
+                        DOCX ↓
+                    </a>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -766,10 +878,24 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 <footer>
     © 2026 Sumit Gabhrani
     <br><br>
-    Computer Engineering Student · MERN Developer · Software Developer
+    Computer Engineering Student · Software Developer
 </footer>
 
 <script>
+/* Resume format menu */
+function toggleResumeMenu(){
+    document.getElementById("resumeDropdown").classList.toggle("show");
+}
+
+document.addEventListener("click", function(event){
+    const menu = document.querySelector(".resume-menu");
+    const dropdown = document.getElementById("resumeDropdown");
+
+    if(menu && dropdown && !menu.contains(event.target)){
+        dropdown.classList.remove("show");
+    }
+});
+
 /* Scroll reveal */
 const observer = new IntersectionObserver(
     entries => {
@@ -790,9 +916,9 @@ const typingText = document.getElementById("typingText");
 
 const words = [
     "a Developer.",
-    "a MERN Developer.",
     "a Problem Solver.",
     "a Computer Engineering Student."
+    "a Tech Enthsiast. "
 ];
 
 let wordIndex = 0;
