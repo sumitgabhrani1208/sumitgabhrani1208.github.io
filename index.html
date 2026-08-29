@@ -397,7 +397,7 @@ h2{
 
 footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
-.reveal{opacity:0;transform:translateY(28px);transition:.7s ease}
+.reveal{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
 .reveal.show{opacity:1;transform:none}
 
 #top{
@@ -475,7 +475,7 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
     <h1>
         Hi, I'm <span class="gradient">Sumit.</span><br>
-        <span id="typingText" class="gradient typing-line"></span><span class="cursor">|</span>
+        <span id="typingText" class="gradient typing-line">a Developer.</span><span class="cursor">|</span>
     </h1>
 
     <p>
@@ -770,12 +770,11 @@ footer{padding:50px 0 70px;color:#78839b;font-size:12px;text-align:center}
 
             <!-- PHONE -->
             <a class="contact-link" href="tel:+919023925860">
-                <a class="contact-link" href="tel:+917433011203">
                 <div class="contact-left">
                     <div class="contact-icon">☎</div>
                     <div>
                         <div class="contact-name">Phone</div>
-                        <div class="contact-value">+91 90239 25860\ +91 74330 11203</div>
+                        <div class="contact-value">+91 90239 25860</div>
                     </div>
                 </div>
                 <div class="arrow">↗</div>
@@ -918,7 +917,6 @@ const words = [
     "a Developer.",
     "a Problem Solver.",
     "a Computer Engineering Student."
-    "a Tech Enthsiast. "
 ];
 
 let wordIndex = 0;
@@ -960,7 +958,7 @@ typeEffect();
 const orb = document.querySelector(".orb");
 
 document.addEventListener("mousemove",event => {
-    if(window.innerWidth < 820) return;
+    if(!orb || window.innerWidth < 820) return;
 
     const x = (event.clientX / window.innerWidth - .5) * 12;
     const y = (event.clientY / window.innerHeight - .5) * -12;
@@ -973,6 +971,7 @@ document.addEventListener("mousemove",event => {
 });
 
 document.addEventListener("mouseleave",() => {
+    if(!orb) return;
     orb.style.transform = `
         rotateX(12deg)
         rotateY(-18deg)
